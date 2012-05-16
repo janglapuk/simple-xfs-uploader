@@ -3,9 +3,9 @@
 
 define('USERNAME', 'free');	// feel 'free' for non-member upload
 define('PASSWORD', 'free'); 	// feel 'free' for non-member upload
+define('CURL_STARTURL', 'http://www.maknyos.com/');
 
 define('CURL_USERAGENTS', 'XFS-FSUploader');
-define('CURL_STATRTURL', 'http://www.maknyos.com/');
 define('CURL_BIN', '/usr/bin/curl');
 
 define('UPLOAD_FILE', 'file_0'); // dont touch this, except you know what the mean!
@@ -75,9 +75,9 @@ function get_auth() {
 	global $filepath;
 	
 	if(USERNAME == 'free' && PASSWORD == 'free') {
-		$command = CURL_BIN . ' -A ' . CURL_USERAGENTS .' -s -F "op=api_get_limits" ' . CURL_STATRTURL;
+		$command = CURL_BIN . ' -A ' . CURL_USERAGENTS .' -s -F "op=api_get_limits" ' . CURL_STARTURL;
 	} else {
-		$command = CURL_BIN . ' -A ' . CURL_USERAGENTS .' -s -F "op=api_get_limits" -F "login=' . USERNAME . '" -F "password=' . PASSWORD . '" ' . CURL_STATRTURL;
+		$command = CURL_BIN . ' -A ' . CURL_USERAGENTS .' -s -F "op=api_get_limits" -F "login=' . USERNAME . '" -F "password=' . PASSWORD . '" ' . CURL_STARTURL;
 	}
 	$xml = exec($command, $out);
 	$str = implode("\n", $out);
