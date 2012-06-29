@@ -134,7 +134,7 @@ function do_upload($path, $sess_id, $server, $max_size, $is_member=true) {
 	
 	print_log('Please wait, uploading...', 'do_upload', 1, false);
 	
-	$command = CURL_BIN . ' --progress-bar -F "sid=' . $md5_sid . '" -F "file=@' . UPLOAD_FILE . '" ' . $server . '/up.cgi';
+	$command = CURL_BIN . ' -F "sid=' . $md5_sid . '" -F "file=@' . UPLOAD_FILE . '" ' . $server . '/up.cgi';
 	$xml = exec($command, $out);
 	
 	if(is_array($out)) {
