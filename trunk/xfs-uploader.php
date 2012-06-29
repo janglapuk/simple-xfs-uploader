@@ -14,7 +14,7 @@ include('lib/xml.php');
 $filepath = '';
 
 function br2() {
-	return "\n";
+	return PHP_EOL;
 }
 
 function print_log($message, $function='', $type=0, $is_exit=false) {
